@@ -6,10 +6,17 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXFileReference section */
+		6A3C23B61AD1C7D900A0E27B /* bTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = bTree.cpp; sourceTree = "<group>"; };
+		6A3C23B71AD1C7D900A0E27B /* bTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bTree.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		6A3C23AF1AD1C68F00A0E27B = {
 			isa = PBXGroup;
 			children = (
+				6A3C23B61AD1C7D900A0E27B /* bTree.cpp */,
+				6A3C23B71AD1C7D900A0E27B /* bTree.h */,
 			);
 			sourceTree = "<group>";
 		};
