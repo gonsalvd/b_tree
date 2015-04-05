@@ -9,6 +9,9 @@
 /* Begin PBXFileReference section */
 		6A3C23B61AD1C7D900A0E27B /* bTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = bTree.cpp; sourceTree = "<group>"; };
 		6A3C23B71AD1C7D900A0E27B /* bTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bTree.h; sourceTree = "<group>"; };
+		6A3C23B81AD1C8A900A0E27B /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
+		6A3C23B91AD1C95500A0E27B /* bTree_main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = bTree_main.cpp; sourceTree = "<group>"; };
+		6A3C23BA1AD1C9CB00A0E27B /* cop3530_p2_REQUIREMENTS.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = cop3530_p2_REQUIREMENTS.docx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -17,6 +20,9 @@
 			children = (
 				6A3C23B61AD1C7D900A0E27B /* bTree.cpp */,
 				6A3C23B71AD1C7D900A0E27B /* bTree.h */,
+				6A3C23B81AD1C8A900A0E27B /* makefile */,
+				6A3C23B91AD1C95500A0E27B /* bTree_main.cpp */,
+				6A3C23BA1AD1C9CB00A0E27B /* cop3530_p2_REQUIREMENTS.docx */,
 			);
 			sourceTree = "<group>";
 		};
