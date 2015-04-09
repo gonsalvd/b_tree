@@ -15,12 +15,18 @@
 #include "Item.h"
 using namespace std;
 
-
+//So we
+typedef Node *link;
 class bTree
 {
 private:
     //Your private stuff to implement the B Tree
     int M;
+    int N;
+    int HT;
+    Node *head;
+    
+    link insertR(link h, Item x, int ht);
 public:
     //Constructor
     bTree();
