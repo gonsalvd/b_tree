@@ -11,31 +11,10 @@
 
 #include <stdio.h>
 #include <string>
-#include "node.h"
+#include "Node.h"
+#include "Item.h"
 using namespace std;
 
-#endif /* defined(__Project2__bTree__) */
-
-
-typedef string Key;
-template <typename Item, typename Key>
-struct entry
-{
-    Key key;
-    Item item;
-    struct node *next;
-};
-struct node
-{
-    int m;
-    entry<Item,Key> b[9];
-    node()
-    {
-        m=0;
-    }
-};
-
-typedef node *link;
 
 class bTree
 {
@@ -70,3 +49,7 @@ public:
     string toStr();
     
 };
+
+
+
+#endif /* defined(__Project2__bTree__) */

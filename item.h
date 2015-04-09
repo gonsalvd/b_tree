@@ -11,19 +11,23 @@
 
 #include <stdio.h>
 #include <string>
+#include "Node.h"
 using namespace std;
 
-#endif /* defined(__Project2__item__) */
-
-
 //an item is what we are storing in our array in the b-tree. it is the "package", the "thing" we are storing. in this case that thing is a string like "Gators". it also includes the key information. a 2 piece thing.
+//something about a cross reference cycling problem. need to include 'Class Node'
+class Node;
 class Item
 {
 private:
     string key_value;
     string info_value;
+    Node *next;
 public:
     Item();
     string key();
     string info();
 };
+
+#endif /* defined(__Project2__item__) */
+

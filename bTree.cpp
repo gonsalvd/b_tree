@@ -8,12 +8,11 @@
 
 #include "bTree.h"
 
-
 //Constructor
 bTree::bTree(void)
 {
     //Default size constructor
-    M = 5
+    M = 5;
 }
 
 //Constructor2
