@@ -22,6 +22,7 @@
 		6AA05BC21AD5ED09004416E8 /* Item.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Item.cpp; sourceTree = "<group>"; };
 		6AA05BC31AD5ED09004416E8 /* Item.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		6AB8F5361AD9D7FA00967B54 /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; usesTabs = 1; };
+		6AB8F5371ADA24CB00967B54 /* drew_test.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = drew_test.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -30,6 +31,7 @@
 			children = (
 				6AA05BBF1AD5E8A6004416E8 /* test.cpp */,
 				6A3C23BA1AD1C9CB00A0E27B /* cop3530_p2_REQUIREMENTS.docx */,
+				6AB8F5371ADA24CB00967B54 /* drew_test.txt */,
 				6AA05BBE1AD5E72B004416E8 /* TC1.txt */,
 				6AA05BBD1AD5E72B004416E8 /* OP1.txt */,
 				6AA05BBC1AD5E72B004416E8 /* TC2.txt */,
