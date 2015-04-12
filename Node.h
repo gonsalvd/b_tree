@@ -13,22 +13,22 @@
 #include <string>
 #include "Item.h"
 
-class Node;
-class Item
-{
-public:
-    string key_value;
-    string info_value;
-    Node *next;
-    Item();
-    //    Item(string key, string value)
-    //    {
-    //        key_value = key;
-    //        info_value = value;
-    //    };
-    string key();
-    string info();
-};
+//class Node;
+class Item;
+//{
+//public:
+//    string key_value;
+//    string info_value;
+//    Node *next;
+//    Item();
+//    //    Item(string key, string value)
+//    //    {
+//    //        key_value = key;
+//    //        info_value = value;
+//    //    };
+//    string key();
+//    string info();
+//};
 
 class Node
 {
