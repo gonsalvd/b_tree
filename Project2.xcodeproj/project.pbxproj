@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		6A07E12F1ADB4FDA00DD8313 /* TC2_original.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = TC2_original.txt; sourceTree = "<group>"; };
+		6A07E1301ADB6A3300DD8313 /* TC2_orig_out.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = TC2_orig_out.txt; sourceTree = "<group>"; };
 		6A3C23B61AD1C7D900A0E27B /* bTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = bTree.cpp; sourceTree = "<group>"; };
 		6A3C23B71AD1C7D900A0E27B /* bTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bTree.h; sourceTree = "<group>"; };
 		6A3C23B81AD1C8A900A0E27B /* makefile_old */ = {isa = PBXFileReference; lastKnownFileType = text; path = makefile_old; sourceTree = "<group>"; usesTabs = 1; };
@@ -35,6 +37,8 @@
 				6AA05BBE1AD5E72B004416E8 /* TC1.txt */,
 				6AA05BBD1AD5E72B004416E8 /* OP1.txt */,
 				6AA05BBC1AD5E72B004416E8 /* TC2.txt */,
+				6A07E12F1ADB4FDA00DD8313 /* TC2_original.txt */,
+				6A07E1301ADB6A3300DD8313 /* TC2_orig_out.txt */,
 				6AA05BBB1AD5E72B004416E8 /* OP2.txt */,
 				6A3C23B81AD1C8A900A0E27B /* makefile_old */,
 				6AB8F5361AD9D7FA00967B54 /* makefile */,

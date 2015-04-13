@@ -82,7 +82,8 @@ private:
         else
             //look through this node (at ht>0) from [0] to [m-1]
             for (j = 0; j < h->m; j++)
-                //check two cases, 1)"j+1 == h->m" means we are at the end of this node meaning we are looking at the last entry of the node or 2)v, our searched key value is less than the ****
+            {
+                //check two cases, 1)"j+1 == h->m" means we are at the end of this node meaning we are looking at the last entry of the node. REMEMBER, a node will only have up to M-1 entries in it. or 2)v, our searched key value is less than the key in position [1], which means its value is between [0] and [1] which means we got off [0]'s pointer
                 if ((j+1 == h->m) || (v < h->b[j+1].key))
                 {
                     //create a new 'node*'
@@ -94,6 +95,7 @@ private:
                     t.next = u;
                     break;
                 }
+            }
         //"SHIFT" code. Here we make space to insert our new entry t
         //Go through the loop, shifting stuff to the right
         for (i = h->m; i > j; i--)
@@ -114,21 +116,50 @@ private:
     //this splits our nodes with full nodes
     link split(link h)
     {
+        //cout<<"split"<<endl;
         //we create a new node
         link t = new node(M);
-        //we move the larger half of our node to the new node t
-        for (int j = 0; j < M/2; j++)
-            //kind of confusing but this moves the larger half of the old node to the first positions of the new node
-            //eg M=5, old node has up to 4 entries from j=0,1,2,3
-            //in our for loop, j will take on values 0,1
-            //M/5(floor) = 2
-            //we want to move j=2,3 to new 0,1 positions of t
-            t->b[j] = h->b[M/2+j];
-        //here we set the number of entries of the old node
-        //from our example the size of m for our old array is now 2 and REMEMBER that we didnt set those j=2,3 positions in our old node to "" or "empty". the values still exisit there. no zeroing was done
-        h->m = M/2;
-        //we set the size number of entries of the new node, t
-        t->m = M/2;
+        //two cases for odd, even M
+        if (M % 2 ==0)
+        {
+            //we move the larger half of our node to the new node t
+            for (int j = 0; j < M/2; j++)
+            {
+                //kind of confusing but this moves the larger half of the old node to the first positions of the new node
+                //eg M=5, old node has up to 4 entries from j=0,1,2,3
+                //in our for loop, j will take on values 0,1
+                //M/5(floor) = 2
+                //we want to move j=2,3 to new 0,1 positions of t
+                t->b[j] = h->b[M/2+j];
+                //cout<<"h->b[M/2+j]:"<<(h->b[M/2+j])<<endl;
+                //cout<<"t->b[j]:"<<(t->b[j])<<endl;
+            }
+            
+            //here we set the number of entries of the old node
+            //from our example the size of m for our old array is now 2 and REMEMBER that we didnt set those j=2,3 positions in our old node to "" or "empty". the values still exisit there. no zeroing was done
+            h->m = M/2;
+            //cout<<"h->m:"<<M/2<<endl;
+            //we set the size number of entries of the new node, t
+            t->m = M/2;
+            //cout<<"t->m:"<<M/2<<endl;
+        }
+        else
+        {
+            //eg M = 5, M/2 = 2
+            //array:0,1,2,3,4
+            //key 0,1,2 in original node, m=3
+            //move 3,4 to new node, m=2
+            for (int j = 0; j < M/2; j++)
+            {
+                t->b[j] = h->b[(M-M/2)+j];
+            }
+            //Different sizes
+            h->m = M - M/2;
+            //cout<<"h->m:"<<M-M/2<<endl;
+            //we set the size number of entries of the new node, t
+            t->m = M/2;
+            //cout<<"t->m:"<<M/2<<endl;
+        }
         return t;
     }
     
@@ -136,14 +167,18 @@ private:
     {
         int j;
         string no_string;
+        //Search only external nodes
         if (ht == 0)
             for (j = 0; j < h->m; j++)
             { if (key == h->b[j].key)
+                //Returns the found item to the searched key
                 return h->b[j].item; }
+        //Keep looking in root/internal nodes until we are looking in external ^
         else
             for (j = 0; j < h->m; j++)
                 if ((j+1 == h->m) || (key < h->b[j+1].key))
                     return findR(h->b[j].next, key, ht-1);
+        //Return empty string if nothing found
         return no_string;
         
     }
@@ -171,7 +206,7 @@ private:
                     //Because we removed an entry we decrement our m counter for h.
                     --h->m;
                     return true;
-
+                    
                 }
             }
         else
@@ -183,22 +218,41 @@ private:
     
     void printR(link h,int ht)
     {
-        cout<<"here1"<<endl;
-        cout<<"height:"<<ht<<endl;
+        //cout<<"here1"<<endl;
+        //cout<<"height:"<<ht<<endl;
         int j;
         //string contents;
         if (ht == 0)
             for (j = 0; j < h->m; j++)
             {
-                cout<<"here"<<endl;
+                //cout<<"here"<<endl;
                 contents += h->b[j].key + '\n';
-                cout<<"contents:"<<contents<<endl;
+                //cout<<"contents:"<<contents<<endl;
             }
         else
-//            for (j = 0; j < h->m; j++)
-//                if ((j+1 == h->m) || (key < h->b[j+1].key))
-                    printR(h->b[j].next, ht-1);
+            for (j = 0; j < h->m; j++)
+                //                if ((j+1 == h->m) || (key < h->b[j+1].key))
+                printR(h->b[j].next, ht-1);
         //return contents;
+    }
+    
+    void clearR(link h, int ht)
+    {
+        int j;
+        //Search only external nodes
+        if (HT == 0)
+        {
+            for (j = 0; j < h->m; j++)
+            {
+                delete h->b[j].next;
+            }
+            //delete h->b;
+            --HT;
+        }
+        //Keep looking in root/internal nodes until we are looking in external ^
+        else
+            for (j = 0; j < h->m; j++)
+                clearR(h->b[j].next, ht-1);
     }
     
 public:
@@ -217,6 +271,8 @@ public:
     {
         //no error handling here if you put in negative size, etc. not needed?
         //M is the num of entries each node can take. we only fill up to M-1 entries in our Bottom Up approach (add item, then split NOT split, then add)
+//        if (size % 2 ==1)
+//            ++size;
         M = size;
         //N is the total number of keys/items in our entire BTree
         N = 0;
@@ -229,7 +285,11 @@ public:
     //Destructor
     ~bTree()
     {
-        
+        //clearR(head, HT);
+//        delete head->b[0].next;
+//        delete head->b[1].next;
+//        delete head->b[2].next;
+        delete head;
     }
     
     //Inserts the value pair into the tree
@@ -288,7 +348,7 @@ public:
         if (deleteR(head, key,HT))
         {
             //THIS IS FOR TESTING ONLY
-            cout<<"Deleted key: "<<key<<endl;
+            //cout<<"Deleted key: "<<key<<endl;
             return true;
         }
         return false;
@@ -300,8 +360,9 @@ public:
     string toStr()
     {
         printR(head, HT);
-        //cout<<"drew1"<<endl;
-
+        //TESTING ONLY
+        //cout<<contents<<endl;
+        
         //FOR TESTING ONLY!
         return contents;
     }

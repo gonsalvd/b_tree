@@ -36,5 +36,6 @@ int main () {
 				break;
 		}
 	}
+    delete BT;
 	return 0;
 }
