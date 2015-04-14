@@ -32,10 +32,10 @@ int main () {
 					cout<<"Key Not Found\n";
 				break;
 			case 3://toString
-				BT->toStr();
+				cout<<BT->toStr();
 				break;
 		}
 	}
-    delete BT;
+    //delete BT;
 	return 0;
 }

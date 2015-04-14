@@ -21,7 +21,6 @@ using namespace std;
 class bTree
 {
     
-    
 private:
     //Your private stuff to implement the B Tree
     int M;
@@ -238,21 +237,10 @@ private:
     
     void clearR(link h, int ht)
     {
-        int j;
-        //Search only external nodes
-        if (HT == 0)
+        for(int i = 0; i<M;i++)
         {
-            for (j = 0; j < h->m; j++)
-            {
-                delete h->b[j].next;
-            }
-            //delete h->b;
-            --HT;
+            delete head->b[i].next;
         }
-        //Keep looking in root/internal nodes until we are looking in external ^
-        else
-            for (j = 0; j < h->m; j++)
-                clearR(h->b[j].next, ht-1);
     }
     
 public:
@@ -286,9 +274,6 @@ public:
     ~bTree()
     {
         //clearR(head, HT);
-//        delete head->b[0].next;
-//        delete head->b[1].next;
-//        delete head->b[2].next;
         delete head;
     }
     
